@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="App4.HighlanderInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Height="1000" VerticalAlignment="Center">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/spaceship.jpg"/>
+        </Grid.Background>
+        <TextBlock FontFamily="Century Gothic" Text="The Highlanders"  FontSize="45" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.5" Margin="50" Foreground="White" />
+        <Button FontFamily="Century Gothic" CornerRadius="10" Content="Next" FontWeight="ExtraBold" Margin="1202,0,0,90" VerticalAlignment="Bottom" Foreground="White" Background="Blue" FontSize="30" Click="Button_Click" Height="82" Width="272"/>
+        <ListView VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="CardListView" Loaded="CardListView_Loaded" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="CardListView_SelectionChanged" Margin="0,50,0,0">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- Use a WrapGrid with 4 rows -->
+                    <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4"/>
+
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:CardViewModel" >
+                    <Border Width="200" Height="250" Opacity="0.6" Background="White">
+                        <!-- Adjust border properties as needed -->
+                        <StackPanel>
+                            <TextBlock FontFamily="Century Gothic" FontWeight="Bold" Text="{x:Bind Title}" Style="{ThemeResource HeaderTextBlockStyle}" />
+                            <TextBlock FontFamily="Century Gothic" Text="{x:Bind Description}" Style="{ThemeResource BodyTextBlockStyle}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Width" Value="200"/>
+
+                    <Setter Property="Height" Value="300"/>
+
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+
+    </Grid>
+</Page>

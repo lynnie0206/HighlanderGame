@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="App4.Dashboard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid   Height="1000" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/spaceship.jpg"/>
+        </Grid.Background>
+        <TextBlock FontFamily="Century Gothic" Text="The Highlanders"  FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0.5" Margin="560,50,0,0" Foreground="White" />
+        <StackPanel  Orientation="Vertical" Background="White" Opacity="0.5" Margin="218,115,224,-283">
+            <TextBlock   FontFamily="Century Gothic" Text="Game Board Size" Foreground="Black" FontWeight="Bold" Height="25" Width="268" Margin="-600,10,0,0"/>
+            <ComboBox  x:Name="cmbSize" Width="263" Margin="250,-25,0,25" SelectionChanged="ComboBox_SelectionChanged">
+            </ComboBox>
+            
+            <TextBlock   FontFamily="Century Gothic" TextWrapping="Wrap" FontWeight="Bold" Foreground="Black" Text="Good Highlanders" Height="24" Margin="-600,0,0,0" Width="263"/>
+            <ComboBox  FontFamily="Century Gothic"  x:Name="cmbGood" Width="263" Margin="250,-25,0,25" SelectionChanged="ComboBox_SelectionChanged">
+            </ComboBox>
+          
+            <TextBlock  FontFamily="Century Gothic" TextWrapping="Wrap" Foreground="Black" Text="Bad Highlanders" FontWeight="Bold" Height="23" Margin="-600,0,0,0" Width="247"/>
+            <ComboBox  FontFamily="Century Gothic"  x:Name="cmbBad" Width="263" Margin="250,-25,0,25" SelectionChanged="ComboBox_SelectionChanged">
+            </ComboBox>
+            
+            <Border BorderBrush="Black" BorderThickness="4" CornerRadius="5" Margin="15" Height="341" Width="778">
+                <Grid>
+                    <TextBlock  FontFamily="Century Gothic" Text="Simulation Options" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,250"/>
+                    <StackPanel Orientation="Horizontal" Margin="100,100,0,50">
+                        <RadioButton  Checked="RadioButton_Checked" FontFamily="Century Gothic" x:Name="rbOne" Content="One Simulation" GroupName="SizeGroup" Margin="20" FontSize="25" Foreground="Black" FontWeight="ExtraBlack"/>
+                        <RadioButton Checked="RadioButton_Checked" FontFamily="Century Gothic" x:Name="rbUser" Content="User-Defined Simulation" GroupName="SizeGroup" Margin="20" FontSize="25" Foreground="Black" FontWeight="ExtraBlack"/>
+                    </StackPanel>
+                    <StackPanel Visibility="Collapsed" Orientation="Horizontal" x:Name="hiddenStackPanel"  Margin="10,250,77,10">
+                        <TextBlock FontFamily="Century Gothic" Margin="20" Text="Number of Simulations" FontSize="20" FontWeight="Bold" Foreground="Blue" Height="36" Width="220"/>
+                        <ComboBox  FontFamily="Century Gothic" Margin="20"  x:Name="cmbSimulation" Width="263" SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        
+                    </StackPanel>
+
+
+
+                </Grid>
+            </Border>
+            <Button CornerRadius="10" Content="Next" FontWeight="ExtraBold" Foreground="White" Background="Blue" FontFamily="Century Gothic"  FontSize="25"  Height="55" Width="156" Click="Button_Click" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Margin="0,20,20,0">
+                <Button.RenderTransform>
+                    <CompositeTransform ScaleY="1"/>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Page>
